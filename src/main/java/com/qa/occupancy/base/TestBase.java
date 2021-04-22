@@ -19,13 +19,13 @@ public class TestBase {
 	public static void initialization() throws IOException
 	{
 	    prop = new Properties();
-		FileInputStream fs = new FileInputStream("D:\\Automation Selenium\\Occupancy\\src\\main\\java\\com\\qa\\occupancy\\config\\config.properties");
+		FileInputStream fs = new FileInputStream("D:\\git projects\\occupancy\\src\\main\\java\\com\\qa\\occupancy\\config\\config.properties");
 		prop.load(fs);
 		
 		String browsername = prop.getProperty("browser");
 		if(browsername.equals("chrome"))
 		{
-			System.setProperty("webdriver.chrome.driver", "D:\\user\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "D:\\Automation\\chromedriver.exe");
 			driver=new ChromeDriver();
 		}
 		else if(browsername.equals("firefox"))

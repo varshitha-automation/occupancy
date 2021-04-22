@@ -1,10 +1,12 @@
 package com.qa.occupancy.TestUtil;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -13,12 +15,16 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.ss.util.NumberToTextConverter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.google.common.collect.Table.Cell;
 import com.qa.occupancy.base.TestBase;
 
@@ -43,7 +49,7 @@ public class TestUtil extends TestBase {
 		}
 	}
 	
-	public static  void addLineSuggetionBox(String option)
+	public   void addLineSuggetionBox(String option)
 	{
 		List<WebElement> l= driver.findElements(By.xpath("//ul[@class='multiselect-container dropdown-menu show']/li/a/label"));
 		for(int i=0;i<l.size();i++)
@@ -198,5 +204,36 @@ public class TestUtil extends TestBase {
 		}
 		
 	}
+	
+	public String selZoneDropDown(String name)
+	{
+		Select sel=new Select(driver.findElement(By.id("sel_ZoneName")));
+		sel.selectByVisibleText(name);
+		return name;
+	}
+	
+	public String screenShot(String filename) throws IOException
+	{
+		File file=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		String destination= "D:\\git projects\\occupancy\\ScreenShot\\"+filename+".png";
+		//FileUtils.copyFile(file, new File(System.getProperty("user.dir")+"\\ScreenShot\\"+filename+".png"));
+		FileUtils.copyFile(file, new File(destination));
+		return destination;
+	}
+	
+	public ExtentReports testReport()
+	{
+		//String path = System.getProperty("user.dir")+"\\TestResult\\result.html";
+		ExtentSparkReporter ext = new ExtentSparkReporter("D:\\git projects\\occupancy\\TestResult\\result.html");
+		ext.config().setReportName("Web Automation");
+		ext.config().setDocumentTitle("Occupancy Automation Results");
+	    ExtentReports extent = new ExtentReports();
+		extent.attachReporter(ext);
+		extent.setSystemInfo("Tester","Varshitha");
+		return extent;
+	}
+	
+	
 
 }
+

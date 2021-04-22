@@ -57,6 +57,30 @@ public class RollingDashPage extends TestBase {
 	return new LiveSettingPage();
 	}
 	
+	public Dashboard1Page clickDash1()
+	{
+		adminBtn.click();
+		TestUtil testutil = new TestUtil();
+		testutil.suggetionBox("Dashboard 1");
+		return new Dashboard1Page();
+	}
+	
+	public Dashboard2Page clickDash2()
+	{
+		adminBtn.click();
+		TestUtil testutil = new TestUtil();
+		testutil.suggetionBox("Dashboard 2");
+		return new Dashboard2Page();
+	}
+	
+	public void Logout()
+	{
+		adminBtn.click();
+		TestUtil testutil = new TestUtil();
+		testutil.suggetionBox("Logout");
+		
+	}
+	
 	public boolean timeStamp()
 	{
 		boolean t = timeStamp.isDisplayed();

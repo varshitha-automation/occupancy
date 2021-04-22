@@ -1,38 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-04-16T19:52:23 IST" name="Default suite" finished-at="2021-04-16T19:53:57 IST" duration-ms="94094">
+  <suite started-at="2021-04-22T19:00:45 IST" name="Default suite" finished-at="2021-04-22T19:01:15 IST" duration-ms="30202">
     <groups>
     </groups>
-    <test started-at="2021-04-16T19:52:23 IST" name="Default test" finished-at="2021-04-16T19:53:57 IST" duration-ms="94094">
-      <class name="com.qa.occupancy.test.EmailSettingTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.qa.occupancy.test.EmailSettingTest@6e0f5f7f]" started-at="2021-04-16T19:52:23 IST" name="setUp" finished-at="2021-04-16T19:52:37 IST" duration-ms="14087" status="PASS">
+    <test started-at="2021-04-22T19:00:45 IST" name="Default test" finished-at="2021-04-22T19:01:15 IST" duration-ms="30202">
+      <class name="com.qa.occupancy.test.Dashboard2Test">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.qa.occupancy.test.Dashboard2Test@6111ba37]" started-at="2021-04-22T19:00:45 IST" name="setUp" finished-at="2021-04-22T19:00:56 IST" duration-ms="10666" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="addEmailTest()[pri:2, instance:com.qa.occupancy.test.EmailSettingTest@6e0f5f7f]" started-at="2021-04-16T19:52:37 IST" name="addEmailTest" finished-at="2021-04-16T19:53:57 IST" duration-ms="79943" status="FAIL">
-          <exception class="org.openqa.selenium.TimeoutException">
+        <test-method signature="dropDwonTest()[pri:1, instance:com.qa.occupancy.test.Dashboard2Test@6111ba37]" started-at="2021-04-22T19:00:56 IST" name="dropDwonTest" finished-at="2021-04-22T19:00:56 IST" duration-ms="172" status="FAIL">
+          <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on WINDOWS (9c8e32d96d7a066b3a7b5d8b657a0a26)] -> xpath: //label[text()='Thresholds']/following-sibling::div] (tried for 50 second(s) with 500 milliseconds interval)
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'VARSHITHA-PC', ip: '192.168.10.190', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.114, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\RV3D\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:13296}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 9c8e32d96d7a066b3a7b5d8b657a0a26]]>
+              <![CDATA[expected [true] but found [false]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on WINDOWS (9c8e32d96d7a066b3a7b5d8b657a0a26)] -> xpath: //label[text()='Thresholds']/following-sibling::div] (tried for 50 second(s) with 500 milliseconds interval)
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'VARSHITHA-PC', ip: '192.168.10.190', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.114, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\RV3D\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:13296}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 9c8e32d96d7a066b3a7b5d8b657a0a26
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-at com.qa.occupancy.pages.EmailSettingPage.waitForElement(EmailSettingPage.java:88)
-at com.qa.occupancy.pages.EmailSettingPage.clickTh(EmailSettingPage.java:94)
-at com.qa.occupancy.test.EmailSettingTest.addEmailTest(EmailSettingTest.java:74)
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:99)
+at org.testng.Assert.failNotEquals(Assert.java:1037)
+at org.testng.Assert.assertTrue(Assert.java:45)
+at org.testng.Assert.assertTrue(Assert.java:55)
+at com.qa.occupancy.test.Dashboard2Test.dropDwonTest(Dashboard2Test.java:67)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -63,11 +53,41 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- addEmailTest -->
-      </class> <!-- com.qa.occupancy.test.EmailSettingTest -->
+        </test-method> <!-- dropDwonTest -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.qa.occupancy.test.Dashboard2Test@6111ba37]" started-at="2021-04-22T19:00:57 IST" name="tearDown" finished-at="2021-04-22T19:00:57 IST" duration-ms="648" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=dropDwonTest status=FAILURE method=Dashboard2Test.dropDwonTest()[pri:1, instance:com.qa.occupancy.test.Dashboard2Test@6111ba37] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.qa.occupancy.test.Dashboard2Test@6111ba37]" started-at="2021-04-22T19:00:57 IST" name="setUp" finished-at="2021-04-22T19:01:08 IST" duration-ms="10659" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="adminSelect()[pri:4, instance:com.qa.occupancy.test.Dashboard2Test@6111ba37]" started-at="2021-04-22T19:01:08 IST" name="adminSelect" finished-at="2021-04-22T19:01:14 IST" duration-ms="6562" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- adminSelect -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.qa.occupancy.test.Dashboard2Test@6111ba37]" started-at="2021-04-22T19:01:14 IST" name="tearDown" finished-at="2021-04-22T19:01:15 IST" duration-ms="635" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=adminSelect status=SUCCESS method=Dashboard2Test.adminSelect()[pri:4, instance:com.qa.occupancy.test.Dashboard2Test@6111ba37] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.qa.occupancy.test.Dashboard2Test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

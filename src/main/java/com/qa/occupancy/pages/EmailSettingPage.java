@@ -52,6 +52,9 @@ public class EmailSettingPage extends TestBase {
 	@FindBy(id="eName")
 	WebElement eName;
 	
+	@FindBy(id="btnUpdateEmGroup")
+	WebElement emailUpdateBtn;
+	
 	@FindBy(id="eEmail")
 	WebElement eEmail;
 	
@@ -60,6 +63,9 @@ public class EmailSettingPage extends TestBase {
 	
 	@FindBy(id="btnAddEmGroup")
 	WebElement addEmailGrp;
+	
+	@FindBy(id="btnYes")
+	WebElement btnYes;
 	
 	@FindBy(xpath="//span[text()='Select Threshold(s)']")
 	WebElement selTh;
@@ -70,10 +76,21 @@ public class EmailSettingPage extends TestBase {
 	@FindBy(xpath="//div[@class='ui-pnotify-text']")
 	 WebElement entryInfo;
 	
+	@FindBy(xpath="//div[@id='colAddEmail']/div/div/div/div/div[5]/div")
+	WebElement zoneclick;
+	
 	  String[] emails = new String[]{
-	          "email1@gmail.com",
+	
 	          "email2@gmail.com",
+	    
 	          "email4@gmail.com"
+	        };
+	  
+	  String[] emailEdit = new String[]{
+				 
+	          "email432@gmail.com",
+	    
+	          "email564@gmail.com"
 	        };
 	  
 	private void clickIntercepted(WebElement e)
@@ -90,21 +107,30 @@ public class EmailSettingPage extends TestBase {
 	
 	public void clickTh()
 	{
-		JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("window.scrollBy(0,1500)");
-		WebElement e = driver.findElement(By.xpath("//label[text()='Thresholds']/following-sibling::div"));
-		waitForElement(driver,e,50);
+		
+		WebElement e = driver.findElement(By.xpath("//label[text()='Threshold']/following-sibling::div//div/button"));
+		new WebDriverWait(driver,20).ignoring(StaleElementReferenceException.class)
+		 .until(ExpectedConditions.elementToBeClickable(e));
 		e.click();
 	}
 	
-	
+	public void zoneClick()
+	{
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(0,2000)");
+		waitForElement(driver,zoneclick,15);
+		clickIntercepted(zoneclick);
+		zoneclick.click();
+	}
 	public void clickZone()
 	{
-		String t=driver.findElement(By.xpath("//label[text()='Zones']/following-sibling::div//div/button")).getAttribute("title");
-		if(t.contains("Select Zone(s)"))
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(0,2000)");
+		String t=driver.findElement(By.xpath("//label[text()='Zones']/following-sibling::div//div/button")).getAttribute("aria-expanded");
+		if(t.contains("false"))
 		{
 			WebElement r =	driver.findElement(By.xpath("//label[text()='Zones']/following-sibling::div//div/button"));
-			waitForElement(driver,r,50);
+			//waitForElement(driver,r,50);
 			JavascriptExecutor exe = (JavascriptExecutor)driver;
 			exe.executeScript("arguments[0].click()", r);
 		}
@@ -183,26 +209,85 @@ public class EmailSettingPage extends TestBase {
 		addEmailBtn.click();
 	}
 	
-	public void addEmailGrp()
+	public boolean addEmailGrp()
 	{
 		
 		clickIntercepted(addEmailGrp);
+		String h=entryInfo.getText();
+		if(h.contains("Email Group details saved."))
+		{
+			return true;
+		}
+		return false;
 	}
 	
 	public boolean addEmail()
 	{
-			eName.sendKeys("emailGrp");
+			eName.sendKeys("emailGrp1");
 			for(String email:emails)
 			{
 			eEmail.sendKeys(email);
 			arrowBtn.click();
+			
 				if(driver.findElements(By.xpath("//div[@class='ui-pnotify-text']")).size()>0)
 				{
-					return false;
+					 return false;
 				}
 			}
 
 			return true;
- }
+	}
+	
+	public void editEmailBtn()
+	{
+		addEmailDetailsBtn.click();
+	}
+	
+	public boolean addEmails()
+	{
+		for(String email:emailEdit)
+		{
+		eEmail.sendKeys(email);
+		arrowBtn.click();
+		
+			if(driver.findElements(By.xpath("//div[@class='ui-pnotify-text']")).size()>0)
+			{
+				 return false;
+			}
+		}
+
+		return true;
+	}
+	
+	public boolean emailUpdateBtn()
+	{
+		clickIntercepted(emailUpdateBtn);
+		String h=entryInfo.getText();
+		if(h.contains("Email Group details saved."))
+		{
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean checkEditEmailDetails(String name)
+	{
+		boolean text=driver.findElements(By.xpath("//td[text()='"+name+"']")).size()>0;
+		if(text==true)
+		{
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean deleteEmail()
+	{
+		btnYes.click();
+		if(driver.findElements(By.xpath("//div[@class='ui-pnotify-text']")).size()>0)
+		{
+			 return false;
+		}
+		return true;
+	}
 
 }

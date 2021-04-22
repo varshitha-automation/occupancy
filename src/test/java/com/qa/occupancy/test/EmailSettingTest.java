@@ -4,6 +4,7 @@ import java.io.IOException;
 
 
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
@@ -29,6 +30,7 @@ public class EmailSettingTest extends TestBase {
 	SmsPage smspage;
 	EmailSettingPage emailsettingpage;
 	SoftAssert soft=new SoftAssert();
+	
 	@BeforeMethod
 	
 	public void setUp() throws IOException
@@ -44,7 +46,7 @@ public class EmailSettingTest extends TestBase {
 		livesettingpage=rollingdashpage.adminBtn();	
 	}
 	
-	@DataProvider
+	//@DataProvider
 	public Object[][] getData()
 	{
 		Object[][] data = new Object[2][1];
@@ -53,7 +55,7 @@ public class EmailSettingTest extends TestBase {
 		return data;
 	}
 	
-	//@Test(priority=1)
+	@Test(priority=1)
 	public void smtpDetails()
 	{
 		emailsettingpage.emailClick();
@@ -73,13 +75,71 @@ public class EmailSettingTest extends TestBase {
 		soft.assertTrue(b);
 		Thread.sleep(5000);
 		emailsettingpage.clickTh();
-		testutil.addLineSuggetionBox("editTh");
-		emailsettingpage.clickZone();
-		testutil.addLineSuggetionBox("f-f");
-		boolean p=emailsettingpage.saveClick();
+		testutil.addLineSuggetionBox("testTh");
+		Thread.sleep(9000);
+		emailsettingpage.zoneClick();
+		testutil.addLineSuggetionBox("teststtest-asdk");
+		boolean p=emailsettingpage.addEmailGrp();
 		soft.assertTrue(p);
 		soft.assertAll();
 	}
 	
+	@Test(priority=3)
+	public void editAddEmail()
+	{
+		emailsettingpage.emailClick();
+		emailsettingpage.editEmailBtn();
+		emailsettingpage.editEmailDetails("hfj");
+		boolean p=emailsettingpage.addEmails();
+		Assert.assertTrue(p);
+		boolean v=emailsettingpage.emailUpdateBtn();
+		Assert.assertTrue(v);
+	}
 	
+	@Test(priority=4)
+	public void editEmail()
+	{
+		emailsettingpage.emailClick();
+		emailsettingpage.editEmailBtn();
+		boolean check=emailsettingpage.checkEditEmailDetails("kk");
+		if(check==true)
+		{
+		emailsettingpage.editEmailDetails("hfj");
+		emailsettingpage.clickTh();
+		testutil.selectCheckBox("addTh");
+		emailsettingpage.zoneClick();
+		testutil.selectCheckBox("testzone-gdfg");
+		boolean v=emailsettingpage.emailUpdateBtn();
+		Assert.assertTrue(v);
+		}
+		else
+		{
+			Assert.assertEquals(check, true,"email not found to edit");
+		}
+	
+	}
+	
+	@Test(priority=5)
+	public void deleteEmail()
+	{
+		emailsettingpage.emailClick();
+		emailsettingpage.editEmailBtn();
+		boolean check=emailsettingpage.checkEditEmailDetails("kk");
+		if(check==true)
+		{
+		emailsettingpage.deleteEmailDetails("hfj");
+		boolean v=emailsettingpage.deleteEmail();
+		Assert.assertTrue(v);
+		}
+		else
+		{
+			Assert.assertEquals(check, true,"email not found to delete");
+		}
+	}
+	
+	@AfterMethod
+	public void tearDown()
+	{
+		driver.quit();
+	}
 }

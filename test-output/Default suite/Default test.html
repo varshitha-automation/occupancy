@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>1/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Apr 16 19:52:23 IST 2021</td>
+<td>Started on:</td><td>Thu Apr 22 19:00:45 IST 2021</td>
 </tr>
-<tr><td>Total time:</td><td>94 seconds (94094 ms)</td>
+<tr><td>Total time:</td><td>30 seconds (30202 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,18 +75,13 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.qa.occupancy.test.EmailSettingTest.addEmailTest()'><b>addEmailTest</b><br>Test class: com.qa.occupancy.test.EmailSettingTest</td>
-<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on WINDOWS (9c8e32d96d7a066b3a7b5d8b657a0a26)] -&gt; xpath: //label[text()=&apos;Thresholds&apos;]/following-sibling::div] (tried for 50 second(s) with 500 milliseconds interval)
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;VARSHITHA-PC&apos;, ip: &apos;192.168.10.190&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;15.0.1&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.114, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\RV3D\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:13296}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 9c8e32d96d7a066b3a7b5d8b657a0a26
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-	at com.qa.occupancy.pages.EmailSettingPage.waitForElement(EmailSettingPage.java:88)
-	at com.qa.occupancy.pages.EmailSettingPage.clickTh(EmailSettingPage.java:94)
-	at com.qa.occupancy.test.EmailSettingTest.addEmailTest(EmailSettingTest.java:74)
+<td title='com.qa.occupancy.test.Dashboard2Test.dropDwonTest()'><b>dropDwonTest</b><br>Test class: com.qa.occupancy.test.Dashboard2Test</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertTrue(Assert.java:45)
+	at org.testng.Assert.assertTrue(Assert.java:55)
+	at com.qa.occupancy.test.Dashboard2Test.dropDwonTest(Dashboard2Test.java:67)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -115,18 +110,13 @@ Session ID: 9c8e32d96d7a066b3a7b5d8b657a0a26
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace807053698", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace807053698'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on WINDOWS (9c8e32d96d7a066b3a7b5d8b657a0a26)] -&gt; xpath: //label[text()=&apos;Thresholds&apos;]/following-sibling::div] (tried for 50 second(s) with 500 milliseconds interval)
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;VARSHITHA-PC&apos;, ip: &apos;192.168.10.190&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;15.0.1&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.114, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\RV3D\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:13296}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 9c8e32d96d7a066b3a7b5d8b657a0a26
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-	at com.qa.occupancy.pages.EmailSettingPage.waitForElement(EmailSettingPage.java:88)
-	at com.qa.occupancy.pages.EmailSettingPage.clickTh(EmailSettingPage.java:94)
-	at com.qa.occupancy.test.EmailSettingTest.addEmailTest(EmailSettingTest.java:74)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1706655559", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1706655559'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertTrue(Assert.java:45)
+	at org.testng.Assert.assertTrue(Assert.java:55)
+	at com.qa.occupancy.test.Dashboard2Test.dropDwonTest(Dashboard2Test.java:67)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -156,8 +146,21 @@ Session ID: 9c8e32d96d7a066b3a7b5d8b657a0a26
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>79</td>
-<td>com.qa.occupancy.test.EmailSettingTest@6e0f5f7f</td></tr>
+<td>0</td>
+<td>com.qa.occupancy.test.Dashboard2Test@6111ba37</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.qa.occupancy.test.Dashboard2Test.adminSelect()'><b>adminSelect</b><br>Test class: com.qa.occupancy.test.Dashboard2Test</td>
+<td></td>
+<td>6</td>
+<td>com.qa.occupancy.test.Dashboard2Test@6111ba37</td></tr>
 </table><p>
 </body>
 </html>

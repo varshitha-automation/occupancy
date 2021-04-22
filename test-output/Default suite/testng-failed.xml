@@ -3,12 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.qa.occupancy.test.EmailSettingTest">
+      <class name="com.qa.occupancy.test.Dashboard2Test">
         <methods>
-          <include name="addEmailTest"/>
+          <include name="dropDwonTest"/>
           <include name="setUp"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- com.qa.occupancy.test.EmailSettingTest -->
+      </class> <!-- com.qa.occupancy.test.Dashboard2Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
