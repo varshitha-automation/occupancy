@@ -54,4 +54,16 @@ public class UserSettingPage extends TestBase {
 		return false;
 	}
 	
+	public boolean update()
+	{
+		oldPwd.sendKeys("gd");
+		newPwd.sendKeys("gs");
+		saveBtn.click();
+		if(driver.findElements(By.xpath("//div[@class='ui-pnotify-text']")).size()>0)
+		{
+		return true;
+		}
+		return false;
+	}
+	
 }
